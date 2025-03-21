@@ -51,8 +51,10 @@ Currently, the following tools are implemented:
 - [ ] Create data visualization components
 
 ### Phase 5: Testing & Documentation
-- [ ] Comprehensive testing of all tools
-- [ ] Create usage documentation
+- [x] Implement test MCP client
+- [x] Create events viewer web interface
+- [x] Comprehensive testing of event listing functionality
+- [ ] Create comprehensive usage documentation
 - [ ] Create example workflows
 
 ## Development Log
@@ -66,6 +68,9 @@ Currently, the following tools are implemented:
 | 2025-03-20 | Implemented core MCP server structure | Completed |
 | 2025-03-20 | Implemented Eventbrite API client | Completed |
 | 2025-03-20 | Implemented list_events and get_event_details tools | Completed |
+| 2025-03-20 | Created test MCP client | Completed |
+| 2025-03-20 | Implemented events viewer UI | Completed |
+| 2025-03-20 | Tested event retrieval with date filtering | Completed |
 
 ## Getting Started
 
@@ -140,6 +145,43 @@ Add the following to your `claude_desktop_config.json` (located at `~/Library/Ap
   }
 }
 ```
+
+## Testing and Event Viewer
+
+This project includes tools for testing the MCP server and viewing events:
+
+### Test MCP Client
+
+The `test-mcp-client-final.js` script allows you to test the MCP server's event retrieval functionality:
+
+```bash
+# Run the test client with default parameters
+node test-mcp-client-final.js
+
+# Run with custom date range
+node test-mcp-client-final.js --start-date="2025-01-01" --end-date="2025-12-31"
+
+# Run with specific status filter
+node test-mcp-client-final.js --status="live"
+```
+
+### Events Viewer
+
+The project includes a web-based events viewer for displaying and filtering events:
+
+```bash
+# Start the events viewer
+node view-events.js
+```
+
+This will start a local web server and open the events viewer in your browser. The viewer allows you to:
+
+- View all events retrieved from Eventbrite
+- Filter events by date range
+- Filter events by status
+- View detailed event information
+
+If the `events.json` file doesn't exist, the script will automatically fetch events from the Eventbrite API.
 
 ## License
 

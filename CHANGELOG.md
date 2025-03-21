@@ -13,12 +13,30 @@ All notable changes to the Eventbrite MCP Server project will be documented in t
 - Implemented list_events tool
 - Implemented get_event_details tool
 - Fixed TypeScript errors and improved type safety
-- Updated documentation
+- Created test MCP client for testing without Claude Desktop
+- Implemented events viewer web interface for browsing and filtering events
+- Added date filtering functionality to event retrieval
+- Comprehensive documentation for all tools and utilities
+- Project cleanup and organization
 
 ### In Progress
 - Additional event management tools
 - Attendee management tools
 - Analytics and reporting features
+
+## [0.2.0] - 2025-03-20
+
+### Added
+- Test MCP client for direct testing of the server
+- Events viewer web interface for browsing events
+- Date filtering functionality for event retrieval
+- Improved documentation with usage examples
+- Project cleanup and organization
+
+### Changed
+- Optimized event retrieval for better performance
+- Enhanced error handling in API client
+- Updated documentation to include testing utilities
 
 ## [0.1.0] - 2025-03-20
 

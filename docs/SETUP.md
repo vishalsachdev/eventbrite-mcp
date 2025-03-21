@@ -8,6 +8,7 @@ This guide will help you set up and configure the Eventbrite MCP Server for loca
 - npm or yarn
 - Eventbrite API key or OAuth credentials
 - Claude Desktop or other MCP client
+- Web browser (for using the events viewer)
 
 ## Installation
 
@@ -100,11 +101,48 @@ yarn start
 
 ## Testing the Server
 
-### Manual Testing
+### Manual Testing with Claude Desktop
 
 1. Start the server
 2. Open Claude Desktop
 3. Try a simple command like: "List my upcoming Eventbrite events"
+
+### Testing with the MCP Test Client
+
+The project includes a dedicated test client that can be used to test the MCP server without requiring Claude Desktop.
+
+```bash
+# Run the test client with default parameters
+node test-mcp-client-final.js
+
+# Run with custom date range
+node test-mcp-client-final.js --start-date="2025-01-01" --end-date="2025-12-31"
+
+# Run with specific status filter
+node test-mcp-client-final.js --status="live"
+```
+
+This client will start the MCP server, send an initialization request, and then call the `list_events` tool with the specified parameters.
+
+### Using the Events Viewer
+
+The project includes a web-based events viewer for displaying and filtering events.
+
+```bash
+# Start the events viewer
+node view-events.js
+```
+
+This will:
+1. Start a local HTTP server
+2. Open your default web browser to the events viewer
+3. If the `events.json` file doesn't exist, automatically fetch events from the Eventbrite API
+
+The events viewer provides a user-friendly interface for:
+- Viewing all events retrieved from Eventbrite
+- Filtering events by date range
+- Filtering events by status
+- Viewing detailed event information
 
 ### Automated Testing
 

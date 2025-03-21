@@ -1,6 +1,88 @@
 # Eventbrite MCP Server Usage Examples
 
-This document provides examples of how to use the Eventbrite MCP Server with Claude or other MCP clients for common event management and analytics tasks.
+This document provides examples of how to use the Eventbrite MCP Server with Claude or other MCP clients for common event management and analytics tasks. It also includes examples of using the test client and events viewer for development and testing.
+
+## Test Client Examples
+
+### Basic Usage
+
+```bash
+# Run the test client with default parameters
+node test-mcp-client-final.js
+```
+
+Output:
+```
+Sending initialize request...
+Received response: {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "serverInfo": {
+      "name": "eventbrite-mcp",
+      "version": "0.1.0"
+    }
+  }
+}
+Server initialized successfully, sending tool request...
+Sending list_events request: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/call",
+  "params": {
+    "name": "list_events",
+    "arguments": {}
+  }
+}
+Received response: {
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Events data...]"
+      }
+    ]
+  }
+}
+Tool execution completed, exiting...
+```
+
+### Filtering by Date Range
+
+```bash
+# Run with custom date range
+node test-mcp-client-final.js --start-date="2025-01-01" --end-date="2025-12-31"
+```
+
+### Filtering by Status
+
+```bash
+# Run with specific status filter
+node test-mcp-client-final.js --status="live"
+```
+
+## Events Viewer Examples
+
+### Starting the Events Viewer
+
+```bash
+# Start the events viewer
+node view-events.js
+```
+
+This will start a local web server and open your browser to the events viewer interface.
+
+### Using the Events Viewer
+
+1. **Viewing All Events**: When the viewer loads, it displays all events from the events.json file.
+
+2. **Filtering by Date**: Use the date range pickers to filter events by start date.
+
+3. **Filtering by Status**: Use the status dropdown to filter events by their status (live, started, ended, etc.).
+
+4. **Viewing Event Details**: Click on an event to view its detailed information.
 
 ## Event Management Examples
 

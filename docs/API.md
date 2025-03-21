@@ -1,12 +1,13 @@
 # Eventbrite MCP Server API Documentation
 
-This document describes the MCP tools provided by the Eventbrite MCP Server.
+This document describes the MCP tools provided by the Eventbrite MCP Server and additional utilities for testing and viewing events.
 
 ## Tool Categories
 
 - [Event Management](#event-management)
 - [Attendee Management](#attendee-management)
 - [Analytics & Reporting](#analytics--reporting)
+- [Testing Utilities](#testing-utilities)
 
 ## Event Management
 
@@ -230,6 +231,40 @@ This document describes the MCP tools provided by the Eventbrite MCP Server.
 ```
 
 **Implementation Status**: Not Started
+
+## Testing Utilities
+
+### Test MCP Client
+
+The `test-mcp-client-final.js` script provides a way to test the MCP server without requiring Claude Desktop or other MCP clients.
+
+**Usage**:
+```bash
+node test-mcp-client-final.js [options]
+```
+
+**Options**:
+- `--status` (string, optional): Filter by event status (draft, live, started, ended, completed, canceled)
+- `--start-date` (string, optional): Filter by start date (ISO 8601 format)
+- `--end-date` (string, optional): Filter by end date (ISO 8601 format)
+
+**Returns**:
+- JSON response from the MCP server containing the events data
+
+### Events Viewer
+
+The `view-events.js` script and `events-viewer.html` file provide a web-based interface for viewing and filtering events.
+
+**Usage**:
+```bash
+node view-events.js
+```
+
+**Features**:
+- View all events retrieved from Eventbrite
+- Filter events by date range
+- Filter events by status
+- View detailed event information
 
 ## Analytics & Reporting
 
